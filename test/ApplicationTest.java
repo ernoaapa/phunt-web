@@ -1,8 +1,7 @@
-import org.junit.*;
-import play.test.*;
-import play.mvc.*;
-import play.mvc.Http.*;
-import models.*;
+import org.junit.Test;
+
+import play.mvc.Http.Response;
+import play.test.FunctionalTest;
 
 public class ApplicationTest extends FunctionalTest {
 
@@ -14,4 +13,4 @@ public class ApplicationTest extends FunctionalTest {
         assertCharset(play.Play.defaultWebEncoding, response);
     }
     
-}
+} 
