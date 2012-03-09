@@ -11,6 +11,6 @@ public class Chains extends AuthenticatedController {
 
 	public static void heads(String uuid) {
 
-		renderJSON(chainService.findHeads());
+		renderJSON(chainService.getCategoryHeads());
 	}
 }
