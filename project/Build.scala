@@ -4,7 +4,7 @@ import PlayProject._
 
 object ApplicationBuild extends Build {
 
-    val appName         = "Phunt-web"
+    val appName         = "phunt"
     val appVersion      = "1.0-SNAPSHOT"
 
     val appDependencies = Seq(
