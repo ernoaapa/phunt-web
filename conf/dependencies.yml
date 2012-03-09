@@ -1,6 +1,6 @@
 # Application dependencies
 
 require:
-    - play
+    - play 1.2.4
     - play -> spring 1.0.2
     - play -> mongo 1.3
