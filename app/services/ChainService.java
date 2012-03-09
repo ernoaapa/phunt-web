@@ -22,11 +22,11 @@ public class ChainService {
 
 	private List<Location> getMockLocations() {
 		List<Location> locations = new ArrayList<Location>();
-		locations.add(getDummyLocation());
+		locations.add(getMockLocation());
 		return locations;
 	}
 
-	private Location getDummyLocation() {
+	private Location getMockLocation() {
 		Location location = new Location();
 		location.setRoughDistance("5 km");
 		location.setChainId(1L);
