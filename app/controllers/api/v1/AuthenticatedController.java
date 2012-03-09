@@ -25,8 +25,8 @@ public class AuthenticatedController extends Controller {
 
 	@Before
 	static void createUserIfNecessary() {
-		if (!User.exists(params.get("uuid"))) {
+		/*if (!User.exists(params.get("uuid"))) {
 			// TODO
-		}
+		}*/
 	}
 }
