@@ -9,17 +9,21 @@ import models.Location;
 
 public class ChainService {
 
-	public HashMap<Category, List<Location>> findHeads() {
-
-		HashMap<Category, List<Location>> heads = new HashMap<Category, List<Location>>();
-
-		heads.put(Category.MOTOR, getMockLocations());
-		heads.put(Category.BICYCLE, getMockLocations());
-		heads.put(Category.FEET, getMockLocations());
-
-		return heads;
+	public List findHeads() {
+		List categories = new ArrayList();
+		categories.add(newCategory("MOTOR", getMockLocations()));
+		categories.add(newCategory("BICYCLE", getMockLocations()));
+		categories.add(newCategory("FEET", getMockLocations()));
+		return categories;
 	}
 
+	private HashMap newCategory(String categoryName, List<Location> locations) {
+		HashMap category = new HashMap();
+		category.put("categoryName", categoryName);
+		category.put("chainHeads", getMockLocations());
+		return category;
+	}
+	
 	private List<Location> getMockLocations() {
 		List<Location> locations = new ArrayList<Location>();
 		locations.add(getMockLocation());
