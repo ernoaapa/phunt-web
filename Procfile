@@ -1,1 +1,1 @@
-web: target/start -Dhttp.port=${PORT} ${JAVA_OPTS}
+play run --http.port=$PORT $PLAY_OPTS
