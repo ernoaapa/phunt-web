@@ -2,7 +2,7 @@ uuid in all api requests as query param.
 
 listChainHeads(uuid, longlat)
 
-GET http://phunt.herokuapp.com/phunt/api/v1/chains/heads/65.123,26.123?uuid=ASDF
+GET http://phunt.herokuapp.com/phunt/api/v1/chains/heads/lat=65.123&lon=26.123?uuid=ASDF
 
 {
   error: "this is only set if an error happened"
@@ -42,7 +42,7 @@ GET http://phunt.herokuapp.com/phunt/api/v1/chains/heads/65.123,26.123?uuid=ASDF
 
 getLocation(uuid, locationId, longlat)
 
-GET http://phunt.herokuapp.com/phunt/api/v1/location/2/65.123,25.123?uuid=ASDF
+GET http://phunt.herokuapp.com/phunt/api/v1/location/2/lat=65.123&lon=26.123?uuid=ASDF
 
 {
     error : "This is set if an error happened",
@@ -69,7 +69,7 @@ GET http://phunt.herokuapp.com/phunt/api/v1/location/2/65.123,25.123?uuid=ASDF
 
 verifyLocation(uuid, locationId, longlat)
 
-PUT http://phunt.herokuapp.com/phunt/api/v1/location/2/verification/65.123,25.123?uuid=ASDF
+PUT http://phunt.herokuapp.com/phunt/api/v1/location/2/verification/lat=65.123&lon=26.123?uuid=ASDF
 
 {
   

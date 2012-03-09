@@ -1,13 +1,15 @@
 package controllers.api.v1;
 
-import java.util.HashMap;
-import java.util.Map;
+import javax.inject.Inject;
+
+import services.ChainService;
 
 public class Chains extends AuthenticatedController {
 
+	@Inject
+	private static ChainService chainService;
+
 	public static void heads(String uuid) {
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("k", "v");
-		renderJSON(map);
+		renderJSON(chainService.findHeads());
 	}
 }
