@@ -1,0 +1,8 @@
+- title
+- carousel
+- download
+	* android
+	* iphone (coming soon)
+	* windows phone (coming soon)
+- footer
+	* contact
