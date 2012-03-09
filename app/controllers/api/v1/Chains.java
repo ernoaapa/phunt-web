@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Chains extends AuthenticatedController {
 
-	public static void heads(String userId) {
+	public static void heads(String uuid) {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("k", "v");
 		renderJSON(map);
