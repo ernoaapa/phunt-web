@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 
 import play.db.jpa.Model;
 
-@Entity
+@Entity(name="USER")
 public class User extends Model {
 
 	private String uuid;
