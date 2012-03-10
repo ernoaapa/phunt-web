@@ -17,6 +17,8 @@ import com.google.common.base.Function;
 import com.google.common.collect.Collections2;
 import com.javadocmd.simplelatlng.LatLng;
 
+import controllers.api.v1.AuthenticatedController;
+
 public class LocationService {
 
 	public List getClosestLocationByCategory(final LatLng userLatLng, Category category) {
@@ -39,7 +41,7 @@ public class LocationService {
 		return locations;
 	}
 
-	public Location createLocation(Long chainId, File image, LatLng userLatLng, Category category) {
+	public Location createLocation(Long chainId, File image, LatLng userLatLng, Category category, String ownerPhoneId) {
 		ImageService imageService = Spring.getBeanOfType(ImageService.class);
 		String pictureUrl = imageService.save(image);
 		
@@ -48,6 +50,7 @@ public class LocationService {
 		location.pictureUrl = pictureUrl;
 		location.gridPictureUrl = pictureUrl;
 		location.category = category;
+		location.ownerPhoneId = ownerPhoneId;
 		location.setLatLng(userLatLng);
 		location.create();
 		

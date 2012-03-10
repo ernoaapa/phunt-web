@@ -32,7 +32,7 @@ public class Chains extends AuthenticatedController {
 			error(StatusCode.BAD_REQUEST, "Chain start image is required!");
 		}
 		
-		Location chainHead = chainService.createChain(image, category, getRequestLatLng());
+		Location chainHead = chainService.createChain(image, category, getRequestLatLng(), AuthenticatedController.getUser().phoneId);
 		
 		renderJSON(chainHead.getResourceUrl());
 	}
@@ -42,7 +42,7 @@ public class Chains extends AuthenticatedController {
 		
 		Chain chain = Chain.findById(chainId);
 		notFoundIfNull(chain);
-		chainService.updateChainHead(chainId, image, getRequestLatLng());
+		chainService.updateChainHead(chainId, image, getRequestLatLng(), AuthenticatedController.getUser().phoneId);
 		Location location = Location.findLatestByChainId(chainId);
 		
 		Logger.info("Replying with resource url: " + location.getResourceUrl());

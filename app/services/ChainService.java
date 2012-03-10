@@ -38,21 +38,21 @@ public class ChainService {
 				.map();
 	}
 
-	public Location createChain(File image, Category category, LatLng userLatLng) {
+	public Location createChain(File image, Category category, LatLng userLatLng, String ownerPhoneId) {
 		Chain chain = new Chain(category);
 		chain.create();
 		
-		return updateChainHead(chain.id, image, userLatLng);
+		return updateChainHead(chain.id, image, userLatLng, ownerPhoneId);
 	}
 
-	public Location updateChainHead(Long chainId, File image, LatLng userLatLng) {
+	public Location updateChainHead(Long chainId, File image, LatLng userLatLng, String ownerPhoneId) {
 		Chain chain = Chain.findById(chainId);
 
 		Logger.info("Fetching last location for chain#"+chainId);
 		Location lastLocation = Location.findLatestByChainId(chainId);
 		Logger.info("Fetched latst location: "+lastLocation);
 				
-		Location newLocation = getLocationService().createLocation(chainId, image, userLatLng, chain.category);
+		Location newLocation = getLocationService().createLocation(chainId, image, userLatLng, chain.category, ownerPhoneId);
 		
 		if (lastLocation != null) {
 			lastLocation.nextLocationId = newLocation.id;

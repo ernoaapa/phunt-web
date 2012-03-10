@@ -31,6 +31,8 @@ public class Location extends Model {
 
 	public Category category;
 	
+	public String ownerPhoneId;
+	
 	@OneToMany
 	@JoinColumn(name = "locationId")
 	public List<Comment> comments;
