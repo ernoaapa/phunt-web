@@ -45,7 +45,7 @@ public class MarvinImageProcessor implements ImageProcessor {
 	}
 
 	private double calculateScaleRatio(int width, int height, int newWidth, int newHeight) {
-		if (width < height) {
+		if (width > height) {
 			return (double)newHeight/(double)height;
 		} else {
 			return (double)newWidth/(double)width;
