@@ -7,6 +7,7 @@ import com.javadocmd.simplelatlng.util.LengthUnit;
 
 public class Comments extends AuthenticatedController {
 
-	public static void create() {		
+	public static void create() {
+		
 	}
 }

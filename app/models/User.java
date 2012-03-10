@@ -10,8 +10,7 @@ public class User extends Model {
 	public String phoneId;
 	public String name;
 
-	public User() {
-		
+	public User() {		
 	}
 	
 	public User(String uuid, String name) {
@@ -20,19 +19,15 @@ public class User extends Model {
 	}
 	
 	public static User findByUuid(String uuid) {
-		return User.find("uuid = ?", uuid).first();
+		return User.find("phoneId = ?", uuid).first();
 	}
 
 	public static boolean exists(String uuid) {
-		if (uuid != null) {
-			return false;
-		}	
-		
 		return User.findByUuid(uuid) != null;
 	}
 	
 	@Override
 	public String toString() {
-		return name+" ("+phoneId+")";
+		return name + " (" + phoneId + ")";
 	}
 }
