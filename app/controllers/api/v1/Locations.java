@@ -31,7 +31,7 @@ public class Locations extends AuthenticatedController {
 		}
 		
 		if(DistanceTool.isCloseEnoughToFind(getRequestLatLng(), location.asLatLng())) {
-			render("Close enough");
+			renderText("Close enough");
 		} else {
 			error("Too far");
 		}
