@@ -4,6 +4,9 @@ import java.io.File;
 
 import javax.inject.Inject;
 
+import play.mvc.Before;
+import static controllers.api.v1.before.BeforeFilters.*;
+
 import models.Category;
 import models.Chain;
 import models.Location;
@@ -17,6 +20,12 @@ public class Chains extends AuthenticatedController {
 
 	@Inject
 	private static LocationService locationService;
+	
+
+	@Before(only = { "heads", "create", "update" })
+	static void requireLatAndLon() {
+		requireLatAndLon();
+	}
 
 	public static void heads() {
 		renderJSON(chainService.getCategoryHeads(getRequestLatLng()));

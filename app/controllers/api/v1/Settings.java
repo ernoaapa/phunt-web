@@ -9,13 +9,11 @@ import com.javadocmd.simplelatlng.util.LengthUnit;
 public class Settings extends AuthenticatedController {
 
 	public static void show() {
-		User user = User.findByUuid(getRequestUuid());
-		renderJSON(user);
+		renderJSON(AuthenticatedController.getUser());
 	}
 	
 	public static void save(String username) {
-		User user = User.findByUuid(getRequestUuid());
+		User user = AuthenticatedController.getUser();
 		user.name = username;
-	}
-	
+	}	
 }
