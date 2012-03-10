@@ -15,5 +15,6 @@ public class Settings extends AuthenticatedController {
 	public static void save(String username) {
 		User user = AuthenticatedController.getUser();
 		user.name = username;
+		user.save();
 	}	
 }
