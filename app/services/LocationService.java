@@ -38,8 +38,8 @@ public class LocationService {
 	}
 
 	public Location createLocation(Long chainId, File image, LatLng userLatLng, Category category) {
-		FileStorage fileStorage = Spring.getBeanOfType(FileStorage.class);
-		String pictureUrl = fileStorage.save(image);
+		ImageService imageService = Spring.getBeanOfType(ImageService.class);
+		String pictureUrl = imageService.save(image);
 		
 		Location location = new Location();
 		location.chainId = chainId;

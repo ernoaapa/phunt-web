@@ -22,15 +22,16 @@ import storage.FileStorage;
 
 public class ImageService {
 
-	public FileStorage fileStorage;
-	
 	public ImageService() {
 		super();
 	}
 
 	public String save(File image) {
 		ImageProcessor processor = Spring.getBeanOfType(ImageProcessor.class);
-		processor.resize(image, 100, 100);
+		FileStorage fileStorage = Spring.getBeanOfType(FileStorage.class);
+		
+		image = processor.resize(image, 336, 457);
+		image = processor.crop(image, 336, 457);
 		
 		return fileStorage.save(image);
 	}
