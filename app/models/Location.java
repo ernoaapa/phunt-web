@@ -9,8 +9,6 @@ import com.javadocmd.simplelatlng.LatLng;
 @Entity
 public class Location extends Model {
 
-	private Long locationId;
-
 	private Long chainId;
 
 	private Double lat;
@@ -60,14 +58,6 @@ public class Location extends Model {
 
 	public void setRoughDistance(String roughDistance) {
 		this.roughDistance = roughDistance;
-	}
-
-	public Long getLocationId() {
-		return locationId;
-	}
-
-	public void setLocationId(Long locationId) {
-		this.locationId = locationId;
 	}
 
 	public String getPictureUrl() {
