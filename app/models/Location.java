@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import play.db.jpa.Model;
 
@@ -15,11 +16,17 @@ public class Location extends Model {
 
 	public Long chainId;
 
+	/** The id of the next location in the chain. Will be null for head */
+	public Long nextLocationId;
+	
 	public Double lat;
 	public Double lon;
 
 	public String pictureUrl;
 
+	@Transient
+	public String roughDistance;
+	
 	public Category category;
 	
 	@OneToMany

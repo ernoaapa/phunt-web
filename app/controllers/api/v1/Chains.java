@@ -6,12 +6,17 @@ import javax.inject.Inject;
 
 import models.Category;
 import models.Chain;
+import models.Location;
 import services.ChainService;
+import services.LocationService;
 
 public class Chains extends AuthenticatedController {
 
 	@Inject
 	private static ChainService chainService;
+
+	@Inject
+	private static LocationService locationService;
 
 	public static void heads() {
 		renderJSON(chainService.getCategoryHeads(getRequestLatLng()));
@@ -25,5 +30,16 @@ public class Chains extends AuthenticatedController {
 		Chain chain = chainService.createChain(image, category, getRequestLatLng());
 		
 		renderJSON(chain);
+	}
+	
+	public static void update(Long chainId, File image) {
+		Chain chain = Chain.findById(chainId);
+		if (chain == null) {
+			error(500, "Invalid chain id");
+		}
+		
+		Location location = locationService.createLocation(chain.id, image, getRequestLatLng(), chain.category);
+		
+		chainService.updateChainHead(chainId, location);
 	}
 }

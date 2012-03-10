@@ -26,4 +26,5 @@ GET     /api/v1/locations/{id}					api.v1.Locations.show
 
 # For testing
 GET		/test/chain/create						test.Chain.create
+GET		/test/chain/update						test.Chain.update
 GET		/test/location/verify					test.Location.verify
