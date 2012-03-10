@@ -1,0 +1,130 @@
+# USERS
+User(jon):
+    phoneId: 109200s9gosd99d9d90ds98sd89
+    name: John
+    
+User(jussi):
+    phoneId: 109200s9gosd99d9d90ds98sd11
+    name: Jussi
+
+User(jack):
+    phoneId: 109200s9gosd99d9d90ds98sd22
+    name: Jack
+
+User(mike):
+    phoneId: 109200s9gosd99d9d90ds98sd33
+    name: Mike
+
+User(seppo):
+    phoneId: 109200s9gosd99d9d90ds98sd44
+    name: Seppo
+
+User(linda):
+    phoneId: 109200s9gosd99d9d90ds98sd33
+    name: Linda
+
+# BIKE 1
+Comment(bike1Comment1):
+    message: Really nice view! Got to find that one!
+    user: jon
+
+Comment(bike1Comment2):
+    message: Where motorcycle?
+    user: jussi
+
+Comment(bike1Comment3):
+    message: My bike broke so got to use Lada :(
+    user: seppo
+
+Location(bikeLocation1):
+    category: MOTOR
+    lon: 23.068741
+    lat: 60.167475
+    pictureUrl: http://phuntter.s3.amazonaws.com/sunset.png
+    gridPictureUrl: http://phuntter.s3.amazonaws.com/sunset_grid.png
+    comments: [bike1Comment1, bike1Comment2, bike1Comment3]
+
+Chain(bikeChain1):
+    category: MOTOR
+    locations: [bikeLocation1]
+
+# BIKE 2
+Comment(bike2Comment1):
+    message: This is AWESOME PIC!!
+    user: jon
+
+Comment(bike2Comment2):
+    message: Love it! <3
+    user: linda
+
+Location(bikeLocation2):
+    category: MOTOR
+    lon: 23.068741
+    lat: 60.167475
+    pictureUrl: http://phuntter.s3.amazonaws.com/fatbike.png
+    gridPictureUrl: http://phuntter.s3.amazonaws.com/fatbike_grid.png
+    comments: [bike2Comment1, bike2Comment2]
+
+Chain(bikeChain2):
+    category: MOTOR
+    locations: [bikeLocation2]
+
+# MOTOR 1
+Comment(motorComment1):
+    message: That's not your car!
+    user: jack
+
+Comment(motorComment2):
+    message: Can I have ride? <3 ;)
+    user: linda
+
+Location(motorLocation1):
+    category: MOTOR
+    lon: 23.068741
+    lat: 60.167475
+    pictureUrl: http://phuntter.s3.amazonaws.com/sportcar.png
+    gridPictureUrl: http://phuntter.s3.amazonaws.com/sportcar_grid.png
+    comments: [motorComment1, motorComment2]
+
+Chain(motorChain1):
+    category: MOTOR
+    locations: [motorLocation1]
+
+# BICYCLE 1
+Comment(bicycleComment1):
+    message: Come on! You can find this! Thats not so hard!
+    user: jussi
+
+Location(bicycleLocation1):
+    category: BICYCLE
+    lon: 23.068741
+    lat: 60.167475
+    pictureUrl: http://phuntter.s3.amazonaws.com/bike.png
+    gridPictureUrl: http://phuntter.s3.amazonaws.com/bike_grid.png
+    comments: [bicycleComment1]
+
+Chain(bicycleChain1):
+    category: BICYCLE
+    locations: [bicycleLocation1]
+
+# WALK 1
+Comment(feetComment1):
+    message: Thats stupid picture! It take no time to someone pick that up!
+    user: jack
+
+Comment(feetComment2):
+    message: Please people who is in "Aalto Build it" please move this atleast little bit harder place!
+    user: linda
+
+Location(feetLocation1):
+    category: FEET
+    lon: 23.068741
+    lat: 60.167475
+    pictureUrl: http://phuntter.s3.amazonaws.com/aalto.png
+    gridPictureUrl: http://phuntter.s3.amazonaws.com/aalto_grid.png
+    comments: [feetComment1, feetComment2]
+
+Chain(feetChain1):
+    category: FEET
+    locations: [feetLocation1]
+

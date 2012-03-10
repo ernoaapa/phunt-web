@@ -46,6 +46,7 @@ public class LocationService {
 		Location location = new Location();
 		location.chainId = chainId;
 		location.pictureUrl = pictureUrl;
+		location.gridPictureUrl = pictureUrl;
 		location.category = category;
 		location.setLatLng(userLatLng);
 		location.create();

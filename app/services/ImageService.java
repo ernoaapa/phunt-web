@@ -36,4 +36,13 @@ public class ImageService {
 		return fileStorage.save(image);
 	}
 
+	public String saveGrid(File image) {
+		ImageProcessor processor = Spring.getBeanOfType(ImageProcessor.class);
+		FileStorage fileStorage = Spring.getBeanOfType(FileStorage.class);
+		
+		image = processor.crop(image, 336, 457);
+		
+		return fileStorage.save(image);
+	}
+
 }
