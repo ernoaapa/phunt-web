@@ -7,6 +7,7 @@ public class L {
 	ArrayList list;
 	
 	public L(Object element) {
+		list = new ArrayList();
 		list.add(element);
 	}
 	

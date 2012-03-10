@@ -8,6 +8,7 @@ public class M {
 	HashMap map;
 	
 	public M(String key, Object value) {
+		map = new HashMap();
 		map.put(key, value);
 	}
 	
