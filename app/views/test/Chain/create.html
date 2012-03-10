@@ -1,11 +1,60 @@
 #{extends 'main.html' /}
 #{set title:'Phunt' /}
 
-<form action="/api/v1/chains/create" method="POST" enctype="multipart/form-data">
-    <input type="text" name="uuid" value="myuuuuuid" />
-    <input type="text" name="lat" value="65.34" />
-    <input type="text" name="lon" value="25.23" />
-    <input type="text" name="category" value="MOTOR" />
-    <input type="file" id="image" name="image" />
-    <input type="submit" value="CREATE!" />
+#{set 'moreScripts'}
+	<script type="text/javascript"
+		src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAArffCpm8sTkJk3wYCQE9B2-oxeBD7o8s&sensor=false">
+	</script>
+	<script type="text/javascript">
+		var map
+		var marker
+		var startLocation = new google.maps.LatLng(60.168649,24.942656);
+		function initialize() {
+			var myOptions = {
+				center: startLocation,
+				zoom: 14,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+        	};
+        	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        	
+        	marker = new google.maps.Marker({
+				position: startLocation,
+				map: map
+			});
+        	
+        	google.maps.event.addListener(map, 'click', function(event) {
+				updateLocation(event.latLng)
+        	});
+        	
+        	updateLocation(startLocation);
+		}
+		
+		function updateLocation(location) {
+			marker.setPosition(location);
+			map.setCenter(location);
+			
+			$("#lat").val(location.lat());
+			$("#lon").val(location.lng());
+		}
+	</script>
+#{/set}
+#{set moreOptions:'onload=initialize()'/}
+
+<h1>Create new chain</h1>
+<form action="/api/v1/chains/create" method="POST" enctype="multipart/form-data" class="well">
+	<div id="map_canvas" style="width:100%; height:400px"></div>
+	<label for="uuid">Uuid
+    	<input type="text" name="uuid" value="myuuuuuid">
+    </label>
+    <label>Location
+	    <input type="text" id="lat" name="lat" value="65.34">
+	    <input type="text" id="lon" name="lon" value="25.23">
+    </label>
+    <label>Type
+    	<input type="text" name="category" value="MOTOR" />
+    </label>
+    <label>Image
+    	<input type="file" id="image" name="image">
+    </label>
+    <button type="submit" class="btn">Create</button>
 </form>
