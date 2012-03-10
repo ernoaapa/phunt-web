@@ -26,6 +26,10 @@ public class Chains extends AuthenticatedController {
 	}
 	
 	public static void create(File image, Category category) {
+		if (image == null) {
+			error(500, "Chain start image is required!");
+		}
+		
 		String pictureUrl = fileStorage.save(image);
 		
 		Chain chain = new Chain();
@@ -34,7 +38,8 @@ public class Chains extends AuthenticatedController {
 		location.setLatLng(getRequestLatLng());
 		location.setPictureUrl(pictureUrl);
 		location.setCategory(category);
-
+		location.create();
+		
 		chain.addLocation(location);
 		chain.create();
 		

@@ -23,4 +23,4 @@ POST	/api/v1/chains/create					api.v1.Chains.create
 *		/admin									module:crud
 
 # For testing
-GET		/upload									Upload.index
+GET		/test/chain/create						Chain.create
