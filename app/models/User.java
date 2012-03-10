@@ -7,7 +7,7 @@ import play.db.jpa.Model;
 @Entity(name="user")
 public class User extends Model {
 
-	private String uuid;
+	private String phoneId;
 	private String name;
 
 	public User() {
@@ -15,16 +15,16 @@ public class User extends Model {
 	}
 	
 	public User(String uuid, String name) {
-		this.uuid = uuid;
+		this.phoneId = uuid;
 		this.name = name;
 	}
 	
-	public String getUuid() {
-		return uuid;
+	public String getPhoneId() {
+		return phoneId;
 	}
 
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
+	public void setPhoneId(String uuid) {
+		this.phoneId = uuid;
 	}
 
 	public String getName() {
