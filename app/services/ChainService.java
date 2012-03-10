@@ -40,7 +40,6 @@ public class ChainService {
 		Location location = new Location();
 		location.setRoughDistance((1+rand(10)) + " km");
 		location.setChainId(1L);
-		location.setLocationId(1L);
 		location.setPictureUrl("http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg");
 		return location;
 	}
