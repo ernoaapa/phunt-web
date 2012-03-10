@@ -50,4 +50,8 @@ public class Location extends Model {
 	public String toString() {
 		return id+" "+category+" "+pictureUrl;
 	}
+
+	public static Location findLatestByChainId(Long chainId) {
+		return find("chainId = ? AND nextLocationId IS null", chainId).first();
+	}
 }

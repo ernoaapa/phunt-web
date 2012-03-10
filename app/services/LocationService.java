@@ -22,8 +22,8 @@ public class LocationService {
 		
 		Collections.sort(locations, new Comparator<Location>() {
 			@Override public int compare(Location loc1, Location loc2) {
-				double distanceToLoc1 = LatLngTool.distance(userLatLng, loc1.asLatLng(), LengthUnit.METER);
-				double distanceToLoc2 = LatLngTool.distance(userLatLng, loc2.asLatLng(), LengthUnit.METER);
+				double distanceToLoc1 = DistanceTool.getDistance(userLatLng, loc1.asLatLng());
+				double distanceToLoc2 = DistanceTool.getDistance(userLatLng, loc2.asLatLng());
 				return (int)(distanceToLoc1 - distanceToLoc2);
 			}
 		});
