@@ -14,5 +14,22 @@ public class BeforeFilters {
 		if (StringUtils.isBlank(params.get("lat")) || StringUtils.isBlank(params.get("lon"))) {
 			throw new Error(500, "lat and lon are required!");
 		}
+	}
+	
+	public static void requireCommentAndLocationId(Params params) {
+		
+		if (StringUtils.isBlank(params.get("comment")) || StringUtils.isBlank(params.get("locationId"))) {
+			invalidLocationIdOrCommentError();
+		}
+		
+		try {
+			Long.parseLong(params.get("locationId"));
+		} catch (Exception e) {
+			invalidLocationIdOrCommentError();
+		}
+	}
+
+	private static void invalidLocationIdOrCommentError() {
+		throw new Error(500, "comment and locationId are required!");
 	}	
 }

@@ -9,11 +9,13 @@ import models.Location;
 import com.javadocmd.simplelatlng.LatLngTool;
 import com.javadocmd.simplelatlng.util.LengthUnit;
 
+import controllers.api.v1.before.BeforeFilters;
+
 public class Locations extends AuthenticatedController {
 
 	@Before(only = { "verify" })
 	static void requireLatAndLon() {
-		requireLatAndLon();
+		BeforeFilters.requireLatAndLon(params);
 	}	
 	
 	public static void verify(Long locationId) {

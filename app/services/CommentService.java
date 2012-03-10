@@ -6,10 +6,11 @@ import models.User;
 
 public class CommentService {
 
-	public Comment save(String message) {
+	public Comment create(String message, Long locationId) {
 		Comment comment = new Comment();
 		comment.setUser(AuthenticatedController.getUser());
 		comment.setMessage(message);
+		comment.setLocationId(locationId);
 		comment.save();
 		return comment;
 	}
