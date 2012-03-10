@@ -2,6 +2,6 @@ package models;
 
 public enum Category {
 
-	MOTOR, BICYCLE, FEET
+	FAST, MEDIUM, SLOW
 
 }

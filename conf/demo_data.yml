@@ -37,7 +37,7 @@ Comment(bike1Comment3):
     user: seppo
 
 Location(bikeLocation1):
-    category: MOTOR
+    category: FAST
     lon: 23.068741
     lat: 60.167475
     pictureUrl: http://phuntter.s3.amazonaws.com/sunset.png
@@ -45,7 +45,7 @@ Location(bikeLocation1):
     comments: [bike1Comment1, bike1Comment2, bike1Comment3]
 
 Chain(bikeChain1):
-    category: MOTOR
+    category: FAST
     locations: [bikeLocation1]
 
 # BIKE 2
@@ -58,7 +58,7 @@ Comment(bike2Comment2):
     user: linda
 
 Location(bikeLocation2):
-    category: MOTOR
+    category: FAST
     lon: 23.068741
     lat: 60.167475
     pictureUrl: http://phuntter.s3.amazonaws.com/fatbike.png
@@ -66,10 +66,10 @@ Location(bikeLocation2):
     comments: [bike2Comment1, bike2Comment2]
 
 Chain(bikeChain2):
-    category: MOTOR
+    category: FAST
     locations: [bikeLocation2]
 
-# MOTOR 1
+# FAST 1
 Comment(motorComment1):
     message: That's not your car!
     user: jack
@@ -79,7 +79,7 @@ Comment(motorComment2):
     user: linda
 
 Location(motorLocation1):
-    category: MOTOR
+    category: FAST
     lon: 23.068741
     lat: 60.167475
     pictureUrl: http://phuntter.s3.amazonaws.com/sportcar.png
@@ -87,16 +87,16 @@ Location(motorLocation1):
     comments: [motorComment1, motorComment2]
 
 Chain(motorChain1):
-    category: MOTOR
+    category: FAST
     locations: [motorLocation1]
 
-# BICYCLE 1
+# MEDIUM 1
 Comment(bicycleComment1):
     message: Come on! You can find this! Thats not so hard!
     user: jussi
 
 Location(bicycleLocation1):
-    category: BICYCLE
+    category: MEDIUM
     lon: 23.068741
     lat: 60.167475
     pictureUrl: http://phuntter.s3.amazonaws.com/bike.png
@@ -104,10 +104,10 @@ Location(bicycleLocation1):
     comments: [bicycleComment1]
 
 Chain(bicycleChain1):
-    category: BICYCLE
+    category: MEDIUM
     locations: [bicycleLocation1]
 
-# WALK 1
+# SLOW 1
 Comment(feetComment1):
     message: Thats stupid picture! It take no time to someone pick that up!
     user: jack
@@ -117,7 +117,7 @@ Comment(feetComment2):
     user: linda
 
 Location(feetLocation1):
-    category: FEET
+    category: SLOW
     lon: 23.068741
     lat: 60.167475
     pictureUrl: http://phuntter.s3.amazonaws.com/aalto.png
@@ -125,6 +125,6 @@ Location(feetLocation1):
     comments: [feetComment1, feetComment2]
 
 Chain(feetChain1):
-    category: FEET
+    category: SLOW
     locations: [feetLocation1]
 

@@ -7,7 +7,7 @@ GET http://phunt.herokuapp.com/phunt/api/v1/chains/heads/lat=65.123&lon=26.123?u
 {
   error: "this is only set if an error happened"
   result: {
-      "motor" : [
+      "fast" : [
         { 
            picUrl : "http://bar.com/wp-content/uploads/2011/07/foo2.gif",
            roughDistance : "5 km",
@@ -23,7 +23,7 @@ GET http://phunt.herokuapp.com/phunt/api/v1/chains/heads/lat=65.123&lon=26.123?u
         ... (more locations in increasing rough distance order)
       ],
 
-      "bicycle" : [
+      "medium" : [
         { 
            picUrl : "http://bar.com/wp-content/uploads/2011/07/foo2.gif",
            roughDistance : "3 km",
@@ -33,7 +33,7 @@ GET http://phunt.herokuapp.com/phunt/api/v1/chains/heads/lat=65.123&lon=26.123?u
        ...
       ],
 
-      "feet" : [
+      "slow" : [
        ...
       ]
 

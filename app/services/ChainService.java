@@ -26,9 +26,9 @@ public class ChainService {
 	public List getCategoryHeads(LatLng userLatLng) {
 		LocationService locationService = getLocationService();
 		
-		return L.make(newCategoryContainer(Category.MOTOR, locationService.getClosestLocationByCategory(userLatLng, Category.MOTOR)))
-				.add(newCategoryContainer(Category.BICYCLE, locationService.getClosestLocationByCategory(userLatLng, Category.BICYCLE)))
-				.add(newCategoryContainer(Category.FEET, locationService.getClosestLocationByCategory(userLatLng, Category.FEET)))
+		return L.make(newCategoryContainer(Category.FAST, locationService.getClosestLocationByCategory(userLatLng, Category.FAST)))
+				.add(newCategoryContainer(Category.MEDIUM, locationService.getClosestLocationByCategory(userLatLng, Category.MEDIUM)))
+				.add(newCategoryContainer(Category.SLOW, locationService.getClosestLocationByCategory(userLatLng, Category.SLOW)))
 				.list();
 	}
 

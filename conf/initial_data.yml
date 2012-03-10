@@ -7,16 +7,16 @@ User(user2):
     name: Ms. User    
 
 Chain(chain1):
-    category: MOTOR
+    category: FAST
  
 Chain(chain2):
-    category: FEET
+    category: SLOW
    
 Chain(chain3):
-    category: BICYCLE
+    category: MEDIUM
  
 Location(location1):
-    category: MOTOR
+    category: FAST
     chainId: 1
     nextLocationId: 4
     lon: 23.068741
@@ -25,7 +25,7 @@ Location(location1):
     
     
 Location(location2): 
-    category: FEET   
+    category: SLOW   
     chainId: 2
     nextLocationId: 5
     lon: 25.068741
@@ -33,7 +33,7 @@ Location(location2):
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
     
 Location(location3): 
-    category: BICYCLE   
+    category: MEDIUM
     chainId: 3
     nextLocationId: 6
     lon: 25.568741
@@ -41,7 +41,7 @@ Location(location3):
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
     
 Location(location4):
-    category: MOTOR
+    category: FAST
     chainId: 1
     nextLocationId: 7
     lon: 24.068741
@@ -49,21 +49,21 @@ Location(location4):
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
     
 Location(location5):
-    category: FEET
+    category: SLOW
     chainId: 2
     lon: 25.068741
     lat: 62.167475
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
     
 Location(location6):
-    category: BICYCLE
+    category: MEDIUM
     chainId: 3
     lon: 61.12
     lat: 23.12
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
     
 Location(location7):
-    category: MOTOR
+    category: FAST
     chainId: 1
     lon: 24.268741
     lat: 61.167475
