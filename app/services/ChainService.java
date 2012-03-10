@@ -38,14 +38,14 @@ public class ChainService {
 				.map();
 	}
 
-	public Chain createChain(File image, Category category, LatLng userLatLng) {
+	public Location createChain(File image, Category category, LatLng userLatLng) {
 		Chain chain = new Chain(category);
 		chain.create();
 		
 		return updateChainHead(chain.id, image, userLatLng);
 	}
 
-	public Chain updateChainHead(Long chainId, File image, LatLng userLatLng) {
+	public Location updateChainHead(Long chainId, File image, LatLng userLatLng) {
 		Chain chain = Chain.findById(chainId);
 
 		Logger.info("Fetching last location for chain#"+chainId);
@@ -59,7 +59,9 @@ public class ChainService {
 			lastLocation.save();
 		}
 		
-		return chain.save();	
+		chain.save();
+		
+		return newLocation;	
 	}
 	
 	private LocationService getLocationService() {

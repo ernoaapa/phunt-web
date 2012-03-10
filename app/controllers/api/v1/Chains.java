@@ -32,9 +32,9 @@ public class Chains extends AuthenticatedController {
 			error(StatusCode.BAD_REQUEST, "Chain start image is required!");
 		}
 		
-		Chain chain = chainService.createChain(image, category, getRequestLatLng());
+		Location chainHead = chainService.createChain(image, category, getRequestLatLng());
 		
-		renderJSON(chain);
+		renderJSON(chainHead.getResourceUrl());
 	}
 	
 	public static void update(Long chainId, File image) {
