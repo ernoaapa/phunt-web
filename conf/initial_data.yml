@@ -2,47 +2,41 @@ Location(location1):
     id: 1
     category: MOTOR
     chainId: 1
-    roughDistance: 50 km
+    lon: 61.12
+    lat: 23.12
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
 Location(location2):    
     id: 2
     chainId: 2
     category: FEET
-    roughDistance: 2 km
+    lon: 61.12
+    lat: 23.12
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
 Location(location3):    
     id: 3
     chainId: 3
     category: BICYCLE
-    roughDistance: 12 km
+    lon: 61.12
+    lat: 23.12
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
 Location(location4):
     id: 4
     chainId: 1
     category: MOTOR
-    roughDistance: 34 km
+    lon: 61.12
+    lat: 23.12
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
 Location(location5):
     id: 5
     chainId: 2
     category: FEET
-    roughDistance: 1 km
+    lon: 61.12
+    lat: 23.12
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
 Location(location6):
     id: 6
     chainId: 3
     category: BICYCLE
-    roughDistance: 23 km
+    lon: 61.12
+    lat: 23.12
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
-
-Chain(chain1):
-    id: 1
-    locations:
-
-Chain(chain2):
-    id: 2
-    locations:
-
-Chain(chain3):
-    id: 3
-    locations:

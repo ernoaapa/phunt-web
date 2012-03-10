@@ -14,8 +14,6 @@ public class Location extends Model {
 	private Double lat;
 	private Double lon;
 
-	private String roughDistance;
-
 	private String pictureUrl;
 
 	private Category category;
@@ -50,14 +48,6 @@ public class Location extends Model {
 
 	public void setCategory(Category category) {
 		this.category = category;
-	}
-
-	public String getRoughDistance() {
-		return roughDistance;
-	}
-
-	public void setRoughDistance(String roughDistance) {
-		this.roughDistance = roughDistance;
 	}
 
 	public String getPictureUrl() {
