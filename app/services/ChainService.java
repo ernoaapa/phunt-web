@@ -45,6 +45,11 @@ public class ChainService {
 		LocationService locationService = Spring.getBeanOfType(LocationService.class);
 		Location location = locationService.createLocation(chain.getId(), pictureUrl, userLatLng, category);
 		
+		return updateChainHead(chain.getId(), location);
+	}
+
+	public Chain updateChainHead(Long chainId, Location location) {
+		Chain chain = Chain.findById(chainId);
 		chain.addLocation(location);
 		chain.save();
 		
