@@ -4,9 +4,10 @@ import java.io.File;
 
 import javax.inject.Inject;
 
+import play.mvc.Http.StatusCode;
+
 import models.Category;
 import models.Chain;
-import models.Location;
 import services.ChainService;
 import services.LocationService;
 
@@ -15,16 +16,13 @@ public class Chains extends AuthenticatedController {
 	@Inject
 	private static ChainService chainService;
 
-	@Inject
-	private static LocationService locationService;
-
 	public static void heads() {
 		renderJSON(chainService.getCategoryHeads(getRequestLatLng()));
 	}
 	
 	public static void create(File image, Category category) {
 		if (image == null) {
-			error(500, "Chain start image is required!");
+			badRequest(Chain start image is required!");
 		}
 		
 		Chain chain = chainService.createChain(image, category, getRequestLatLng());
@@ -35,15 +33,12 @@ public class Chains extends AuthenticatedController {
 	public static void update(Long chainId, File image) {
 		Chain chain = Chain.findById(chainId);
 		if (chain == null) {
-			error(500, "Invalid chain id");
+			notFound("Invalid chain id");
 		}
-		
-		Location location = locationService.createLocation(chain.id, image, getRequestLatLng(), chain.category);
-		
-		chainService.updateChainHead(chainId, location);
+		chainService.updateChainHead(chainId, image, getRequestLatLng());
 	}
 	
-	public static void updateChainHead(Long chainId, Double lat, Double lon) {
-		
+	public static void updateChainHead(File image, Long chainId) {
+		chainService.updateChainHead(chainId, image, getRequestLatLng());
 	}
 }

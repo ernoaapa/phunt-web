@@ -21,7 +21,7 @@ import com.javadocmd.simplelatlng.LatLng;
 public class ChainService {
 
 	public List getCategoryHeads(LatLng userLatLng) {
-		LocationService locationService = Spring.getBeanOfType(LocationService.class);
+		LocationService locationService = getLocationService();
 		
 		return L.make(newCategoryContainer(Category.MOTOR, locationService.getClosestLocationByCategory(userLatLng, Category.MOTOR)))
 				.add(newCategoryContainer(Category.BICYCLE, locationService.getClosestLocationByCategory(userLatLng, Category.BICYCLE)))
@@ -36,22 +36,28 @@ public class ChainService {
 	}
 
 	public Chain createChain(File image, Category category, LatLng userLatLng) {
-		Chain chain = new Chain();
-		chain.category = category;
+		Chain chain = new Chain(category);
 		chain.create();
 		
-		LocationService locationService = Spring.getBeanOfType(LocationService.class);
-		Location location = locationService.createLocation(chain.getId(), image, userLatLng, category);
-		
-		return updateChainHead(chain.getId(), location);
+		return updateChainHead(chain.id, image, userLatLng);
 	}
 
-	public Chain updateChainHead(Long chainId, Location location) {
+	public Chain updateChainHead(Long chainId, File image, LatLng userLatLng) {
 		Chain chain = Chain.findById(chainId);
-		chain.addLocation(location);
-		chain.save();
+
+		Location lastLocation = Location.findLatestByChainId(chainId);
+		Location newLocation = getLocationService().createLocation(chainId, image, userLatLng, chain.category);
 		
-		return chain;
+		if (lastLocation != null) {
+			lastLocation.nextLocationId = newLocation.id;
+			lastLocation.save();
+		}
+		
+		return chain.save();	
+	}
+	
+	private LocationService getLocationService() {
+		return Spring.getBeanOfType(LocationService.class);
 	}
 
 }
