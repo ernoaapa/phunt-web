@@ -25,4 +25,5 @@ POST	/api/v1/locations/verify				api.v1.Locations.verify
 
 # For testing
 GET		/test/chain/create						test.Chain.create
+GET		/test/chain/update						test.Chain.update
 GET		/test/location/verify					test.Location.verify
