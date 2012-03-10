@@ -7,6 +7,7 @@ import play.mvc.Before;
 import play.mvc.Http.StatusCode;
 import models.Category;
 import models.Chain;
+import models.Location;
 import services.ChainService;
 import services.LocationService;
 
@@ -39,6 +40,8 @@ public class Chains extends AuthenticatedController {
 		Chain chain = Chain.findById(chainId);
 		notFoundIfNull(chain);
 		chainService.updateChainHead(chainId, image, getRequestLatLng());
+		Location location = Location.findLatestByChainId(chainId);
+		renderJSON(location.getResourceUrl());
 	}
 	
 }

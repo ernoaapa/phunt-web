@@ -4,16 +4,18 @@ import java.io.File;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 import models.Category;
 import models.Location;
 import play.modules.spring.Spring;
+import play.mvc.Http.Request;
+import play.mvc.Router;
 import storage.FileStorage;
 import util.DistanceTool;
+import util.M;
 
 import com.javadocmd.simplelatlng.LatLng;
-import com.javadocmd.simplelatlng.LatLngTool;
-import com.javadocmd.simplelatlng.util.LengthUnit;
 
 public class LocationService {
 
@@ -29,9 +31,8 @@ public class LocationService {
 		});
 		
 		for (Location location : locations) {
-			location.roughDistance = DistanceTool.getRoughDistance(userLatLng, location.asLatLng());
+			location.updateRequestProperties(userLatLng);
 		}
-		
 		
 		return locations;
 	}
