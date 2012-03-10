@@ -9,7 +9,7 @@ import play.db.jpa.Model;
 public class Comment extends Model {
 
 	private Long locationId;
-	private String comment;
+	private String message;
 	
 	@OneToOne
 	private User user;
@@ -22,19 +22,19 @@ public class Comment extends Model {
 		this.locationId = locationId;
 	}
 
-	public String getComment() {
-		return comment;
-	}
-
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
-
 	public User getUser() {
 		return user;
 	}
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 }
