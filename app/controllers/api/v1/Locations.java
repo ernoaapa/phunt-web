@@ -19,6 +19,11 @@ public class Locations extends AuthenticatedController {
 	}	
 	
 	public static void verify(Long locationId) {
+		if (locationId == null) {
+			error(500, "Location id required!");
+			
+		}
+		
 		Location location = Location.findById(locationId);
 		
 		if (location == null) {
