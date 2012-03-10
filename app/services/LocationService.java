@@ -28,4 +28,15 @@ public class LocationService {
 		
 		return locations;
 	}
+
+	public Location createLocation(Long chainId, String pictureUrl, LatLng userLatLng, Category category) {
+		Location location = new Location();
+		location.setChainId(chainId);
+		location.setLatLng(userLatLng);
+		location.setPictureUrl(pictureUrl);
+		location.setCategory(category);
+		location.create();
+		
+		return location;
+	}
 }
