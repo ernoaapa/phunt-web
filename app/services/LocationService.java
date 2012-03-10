@@ -5,16 +5,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.apache.log4j.SimpleLayout;
-
-import play.modules.spring.Spring;
-import storage.FileStorage;
-
 import models.Category;
 import models.Location;
+import play.modules.spring.Spring;
+import storage.FileStorage;
+import util.DistanceTool;
 
-import com.google.common.collect.Collections2;
-import com.google.common.collect.Lists;
 import com.javadocmd.simplelatlng.LatLng;
 import com.javadocmd.simplelatlng.LatLngTool;
 import com.javadocmd.simplelatlng.util.LengthUnit;
