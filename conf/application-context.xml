@@ -6,4 +6,5 @@
 	<bean id="userService" class="services.UserService" />
 	<bean id="locationService" class="services.LocationService" />
 
+	<bean id="fileStorage" class="storage.s3.S3FileStorage" />
 </beans>
