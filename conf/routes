@@ -22,6 +22,9 @@ POST	/api/v1/chains/create					api.v1.Chains.create
 POST	/api/v1/locations/verify				api.v1.Locations.verify
 GET     /api/v1/locations/{id}					api.v1.Locations.show
 
+POST	/api/v1/settings						api.v1.Settings.save
+GET		/api/v1/settings						api.v1.Settings.show
+
 # Admin site
 *		/admin									module:crud
 
