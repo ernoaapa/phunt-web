@@ -1,5 +1,8 @@
 package controllers.api.v1;
 
+
+import play.mvc.Before;
+
 import util.DistanceTool;
 import models.Location;
 
@@ -8,6 +11,11 @@ import com.javadocmd.simplelatlng.util.LengthUnit;
 
 public class Locations extends AuthenticatedController {
 
+	@Before(only = { "verify" })
+	static void requireLatAndLon() {
+		requireLatAndLon();
+	}	
+	
 	public static void verify(Long locationId) {
 		Location location = Location.findById(locationId);
 		

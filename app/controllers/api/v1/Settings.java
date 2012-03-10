@@ -16,6 +16,5 @@ public class Settings extends AuthenticatedController {
 	public static void save(String username) {
 		User user = User.findByUuid(getRequestUuid());
 		user.name = username;
-	}
-	
+	}	
 }

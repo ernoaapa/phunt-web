@@ -4,10 +4,15 @@ import java.io.File;
 
 import javax.inject.Inject;
 
+<<<<<<< HEAD
+import play.mvc.Http.StatusCode;
+=======
+import play.mvc.Before;
+import static controllers.api.v1.before.BeforeFilters.*;
+>>>>>>> 96299d28eb4ade362e1e93e872aeda769d996340
+
 import models.Category;
 import models.Chain;
-import play.mvc.Before;
-import play.mvc.Http.StatusCode;
 import services.ChainService;
 import services.LocationService;
 
@@ -16,18 +21,25 @@ public class Chains extends AuthenticatedController {
 	@Inject
 	private static ChainService chainService;
 
+<<<<<<< HEAD
+=======
+	@Inject
+	private static LocationService locationService;
+	
+
 	@Before(only = { "heads", "create", "update" })
 	static void requireLatAndLon() {
 		requireLatAndLon();
 	}
 
+>>>>>>> 96299d28eb4ade362e1e93e872aeda769d996340
 	public static void heads() {
 		renderJSON(chainService.getCategoryHeads(getRequestLatLng()));
 	}
 	
 	public static void create(File image, Category category) {
-		if (image == null) {	
-			error(StatusCode.BAD_REQUEST, "Chain start image is required!");
+		if (image == null) {
+			badRequest(Chain start image is required!");
 		}
 		
 		Chain chain = chainService.createChain(image, category, getRequestLatLng());
@@ -37,7 +49,9 @@ public class Chains extends AuthenticatedController {
 	
 	public static void update(Long chainId, File image) {
 		Chain chain = Chain.findById(chainId);
-		notFoundIfNull(chain);
+		if (chain == null) {
+			notFound("Invalid chain id");
+		}
 		chainService.updateChainHead(chainId, image, getRequestLatLng());
 	}
 	
