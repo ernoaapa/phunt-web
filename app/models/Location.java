@@ -27,6 +27,8 @@ public class Location extends Model {
 
 	public String pictureUrl;
 
+	public String gridPictureUrl;
+
 	public Category category;
 	
 	@OneToMany
