@@ -51,4 +51,8 @@ public class Chains extends AuthenticatedController {
 		
 		chainService.updateChainHead(chainId, location);
 	}
+	
+	public static void updateChainHead(Long chainId, Double lat, Double lon) {
+		
+	}
 }

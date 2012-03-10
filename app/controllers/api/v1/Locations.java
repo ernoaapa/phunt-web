@@ -1,6 +1,9 @@
 package controllers.api.v1;
 
+
 import play.mvc.Before;
+
+import util.DistanceTool;
 import models.Location;
 
 import com.javadocmd.simplelatlng.LatLngTool;
@@ -20,7 +23,7 @@ public class Locations extends AuthenticatedController {
 			error(500, "Invalid location id!");
 		}
 		
-		if(LatLngTool.distance(getRequestLatLng(), location.asLatLng(), LengthUnit.METER) < 20) {
+		if(DistanceTool.isCloseEnoughToFind(getRequestLatLng(), location.asLatLng())) {
 			renderJSON("OK");
 		} else {
 			renderJSON("ERROR");

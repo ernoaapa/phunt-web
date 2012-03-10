@@ -6,7 +6,11 @@ import com.javadocmd.simplelatlng.util.LengthUnit;
 
 public class DistanceTool {
 	
-	static Double getDistance(LatLng point1, LatLng point2) {
+	public static boolean isCloseEnoughToFind(LatLng userPoint, LatLng locationPoint) {
+		return LatLngTool.distance(userPoint, locationPoint, LengthUnit.METER) < 35;	
+	}
+	
+	public static Double getDistance(LatLng point1, LatLng point2) {
 		return LatLngTool.distance(point1, point2, LengthUnit.METER);
 	}
 	
