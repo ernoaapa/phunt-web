@@ -73,6 +73,11 @@ public class Location extends Model {
 	}
 	
 	public LatLng asLatLng() {
+		// TODO: temp fix
+		if (lat == null || lon == null) {
+			return new LatLng(65.34, 25.23);
+		}
+		
 		return new LatLng(lat, lon);
 	}
 }
