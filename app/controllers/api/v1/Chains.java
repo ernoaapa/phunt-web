@@ -41,7 +41,4 @@ public class Chains extends AuthenticatedController {
 		chainService.updateChainHead(chainId, image, getRequestLatLng());
 	}
 	
-	public static void updateChainHead(File image, Long chainId) {
-		chainService.updateChainHead(chainId, image, getRequestLatLng());
-	}
 }
