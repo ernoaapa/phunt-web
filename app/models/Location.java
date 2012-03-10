@@ -3,6 +3,7 @@ package models;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
@@ -30,6 +31,7 @@ public class Location extends Model {
 	public Category category;
 	
 	@OneToMany
+	@JoinColumn(name = "locationId")
 	public List<Comment> comments;
 
 	public void setLatLng(LatLng latLng) {
@@ -53,5 +55,9 @@ public class Location extends Model {
 
 	public static Location findLatestByChainId(Long chainId) {
 		return find("chainId = ? AND nextLocationId IS null", chainId).first();
+	}
+	
+	public void addComment(Comment comment) {
+		comments.add(comment);
 	}
 }
