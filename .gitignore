@@ -4,6 +4,7 @@ project/target
 target
 tmp
 .history
+modules
 
 # Some common ignores from https://github.com/github/gitignore
 

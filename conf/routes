@@ -17,3 +17,6 @@ GET     /public/                                staticDir:public
 # API
 
 GET     /api/v1/chains/heads					api.v1.Chains.heads
+
+# Admin site
+*		/admin									module:crud
