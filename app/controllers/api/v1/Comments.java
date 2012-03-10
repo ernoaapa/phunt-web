@@ -24,11 +24,8 @@ public class Comments extends AuthenticatedController {
 		BeforeFilters.requireCommentAndLocationId(params);
 	}	
 	
-	public static void create() {
-		commentService.create(params.get("comment"), getLocationId());
+	public static void create(String comment, Long locationId) {
+		commentService.create(comment, locationId);
 	}
 
-	private static Long getLocationId() {
-		return Long.parseLong(params.get("locationId"));
-	}
 }
