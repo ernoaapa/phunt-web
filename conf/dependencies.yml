@@ -7,6 +7,7 @@ require:
     - play -> secure
     - com.javadocmd -> simplelatlng 1.0.1
     - com.amazonaws -> aws-java-sdk 1.2.7
+    - com.google.guava -> guava r09
     
 repositories:
   - provided:

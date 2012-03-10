@@ -34,3 +34,19 @@ Location(location6):
     lon: 61.12
     lat: 23.12
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
+
+Comment(comment1):
+    locationId: 1
+    message: Nice location!
+
+Comment(comment2):
+    locationId: 1
+    message: Where motorcycle?
+
+Comment(comment3):
+    locationId: 2
+    message: Suck my comment.
+
+Comment(comment4):
+    locationId: 2
+    message: No suck pls.
