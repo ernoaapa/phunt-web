@@ -12,6 +12,8 @@ import play.db.jpa.Model;
 @Entity
 public class Chain extends Model {
 
+	public Category category;
+	
 	@OneToMany
 	public List<Location> locations;
 
@@ -21,6 +23,7 @@ public class Chain extends Model {
 		}
 		
 		locations.add(location);
+		location.category = category;
 	}
 
 }
