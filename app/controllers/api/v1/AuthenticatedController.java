@@ -36,7 +36,6 @@ public class AuthenticatedController extends Controller {
 		String uuid = getRequestUuid();
 		if (!User.exists(uuid)) {
 			user = userService.createUser(uuid);
-			System.out.println("created");
 		} else {
 			user = User.findByUuid(uuid);
 		}

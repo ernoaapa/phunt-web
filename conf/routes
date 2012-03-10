@@ -26,13 +26,15 @@ GET     /api/v1/locations/{id}					api.v1.Locations.show
 POST	/api/v1/settings						api.v1.Settings.save
 GET		/api/v1/settings						api.v1.Settings.show
 
-POST	/api/v1/comments						api.v1.Settings.save
-GET		/api/v1/comments{id}					api.v1.Settings.show
+POST	/api/v1/comments/create					api.v1.Comments.create
 
 # Admin site
+
 *		/admin									module:crud
 
 # For testing
+
 GET		/test/chain/create						test.Chain.create
 GET		/test/chain/update						test.Chain.update
 GET		/test/location/verify					test.Location.verify
+GET		/test/comment/create					test.Comment.create

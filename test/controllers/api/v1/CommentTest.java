@@ -10,28 +10,22 @@ import play.test.FunctionalTest;
 public class CommentTest extends FunctionalTest {
 
     @Test
-    public void testThatIndexPageWorks() {
-        Response response = GET("/");
-        assertIsOk(response);
-        assertContentType("text/html", response);
-        assertCharset(play.Play.defaultWebEncoding, response);
-    }
+    public void saveCommentShouldRequireLocationIdAndComment() throws Exception {
+		Response response = POST("/api/v1/comments/create", getCommentParameters("uuid", "", "comment"));
+        assertStatus(500, response);
+	}
     
     @Test
     public void saveComment() throws Exception {
-    	Map<String, String> parameters = new HashMap<String, String>();
-    	parameters.put("uuid", "1");
-    	parameters.put("locationId", "1");
-    	parameters.put("comment", "comment");
-		Response response = POST("/api/v1/comments", parameters);
-        assertIsOk(response);
-        
-        // String comment = getComment("uuid");
-	}
+		Response response = POST("/api/v1/comments/create", getCommentParameters("uuid", "1", "comment"));
+        assertStatus(200, response);
+	}    
 
-	private String getComment(String string) {
-		Response response = GET("/comments/");
-		return null;
-	}
-    
-} 
+	private Map<String, String> getCommentParameters(String uuid, String locationId, String comment) {
+		Map<String, String> parameters = new HashMap<String, String>();
+    	parameters.put("uuid", uuid);
+    	parameters.put("locationId", locationId);
+    	parameters.put("comment", comment);
+		return parameters;
+	}    
+}
