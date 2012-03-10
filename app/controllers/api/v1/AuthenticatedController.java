@@ -14,6 +14,8 @@ import com.javadocmd.simplelatlng.LatLng;
 import com.javadocmd.simplelatlng.LatLngTool;
 import com.javadocmd.simplelatlng.util.LengthUnit;
 
+import controllers.api.v1.before.BeforeFilters;
+
 public class AuthenticatedController extends Controller {
 
 	@Inject
@@ -23,13 +25,6 @@ public class AuthenticatedController extends Controller {
 	static void requireUuid() {
 		if (StringUtils.isBlank(params.get("uuid"))) {
 			error(500, "uuid is required!");
-		}
-	}
-
-	@Before
-	static void requireLatAndLon() {
-		if (StringUtils.isBlank(params.get("lat")) || StringUtils.isBlank(params.get("lon"))) {
-			error(500, "lat and lon are required!");
 		}
 	}
 
