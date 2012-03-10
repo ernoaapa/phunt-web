@@ -40,6 +40,10 @@ public class AuthenticatedController extends Controller {
 		}
 	}
 	
+	static String getRequestUuid() {
+		return params.get("uuid");
+	}
+	
 	static LatLng getRequestLatLng() {
 		Double lat = Double.valueOf(params.get("lat"));
 		Double lon = Double.valueOf(params.get("lon"));
