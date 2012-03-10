@@ -8,6 +8,7 @@ import javax.persistence.OneToMany;
 import play.db.jpa.Model;
 
 import com.javadocmd.simplelatlng.LatLng;
+import com.sun.org.apache.bcel.internal.generic.LNEG;
 
 @Entity
 public class Location extends Model {
@@ -70,6 +71,11 @@ public class Location extends Model {
 
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
+	}
+	
+	public void setLatLng(LatLng latLng) {
+		lat = latLng.getLatitude();
+		lon = latLng.getLongitude();
 	}
 	
 	public LatLng asLatLng() {

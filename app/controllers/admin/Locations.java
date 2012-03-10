@@ -4,4 +4,5 @@ import controllers.CRUD;
 
 public class Locations extends CRUD {
 
+	
 }

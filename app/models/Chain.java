@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -20,6 +21,14 @@ public class Chain extends Model {
 
 	public void setLocations(List<Location> locations) {
 		this.locations = locations;
+	}
+
+	public void addLocation(Location location) {
+		if (locations == null) {
+			locations = new ArrayList<Location>();
+		}
+		
+		locations.add(location);
 	}
 
 }

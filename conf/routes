@@ -16,9 +16,11 @@ GET     /public/                                staticDir:public
 
 # API
 
-GET     /api/v1/chains/heads					api.v1.Chains.heads
+GET		/api/v1/chains/heads					api.v1.Chains.heads
+POST	/api/v1/chains/create					api.v1.Chains.create
 
 # Admin site
 *		/admin									module:crud
 
+# For testing
 GET		/upload									Upload.index
