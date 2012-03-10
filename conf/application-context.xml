@@ -3,5 +3,7 @@
 <beans>
 
 	<bean id="chainService" class="services.ChainService" />
+	<bean id="userService" class="services.UserService" />
+	<bean id="locationService" class="services.LocationService" />
 
 </beans>

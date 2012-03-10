@@ -1,5 +1,7 @@
 package models;
 
+import com.javadocmd.simplelatlng.LatLng;
+
 import play.db.jpa.Model;
 
 public class Location extends Model {
@@ -8,8 +10,8 @@ public class Location extends Model {
 
 	private Long chainId;
 
-	private Long lat;
-	private Long lon;
+	private Double lat;
+	private Double lon;
 
 	private String roughDistance;
 
@@ -25,19 +27,19 @@ public class Location extends Model {
 		this.chainId = chainId;
 	}
 
-	public Long getLat() {
+	public Double getLat() {
 		return lat;
 	}
 
-	public void setLat(Long lat) {
+	public void setLat(Double lat) {
 		this.lat = lat;
 	}
 
-	public Long getLon() {
+	public Double getLon() {
 		return lon;
 	}
 
-	public void setLon(Long lon) {
+	public void setLon(Double lon) {
 		this.lon = lon;
 	}
 
@@ -71,5 +73,9 @@ public class Location extends Model {
 
 	public void setPictureUrl(String pictureUrl) {
 		this.pictureUrl = pictureUrl;
+	}
+	
+	public LatLng asLatLng() {
+		return new LatLng(lat, lon);
 	}
 }

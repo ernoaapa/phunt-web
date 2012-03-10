@@ -10,6 +10,15 @@ public class User extends Model {
 	private String uuid;
 	private String name;
 
+	public User() {
+		
+	}
+	
+	public User(String uuid, String name) {
+		this.uuid = uuid;
+		this.name = name;
+	}
+	
 	public String getUuid() {
 		return uuid;
 	}
@@ -27,16 +36,14 @@ public class User extends Model {
 	}
 
 	public static User findByUuid(String uuid) {
-		JPAQuery query = User.find("uuid = ?", uuid);
-		return query.first();
+		return User.find("uuid = ?", uuid).first();
 	}
 
 	public static boolean exists(String uuid) {
 		if (uuid != null) {
-			if (User.findByUuid(uuid) != null) {
-				return true;
-			}
-		}
-		return false;
+			return false;
+		}	
+		
+		return User.findByUuid(uuid) != null;		
 	}
 }

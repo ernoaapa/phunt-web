@@ -9,8 +9,7 @@ public class Chains extends AuthenticatedController {
 	@Inject
 	private static ChainService chainService;
 
-	public static void heads(String uuid) {
-
-		renderJSON(chainService.getCategoryHeads());
+	public static void heads() {
+		renderJSON(chainService.getCategoryHeads(getRequestLatLng()));
 	}
 }
