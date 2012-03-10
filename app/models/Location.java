@@ -1,9 +1,10 @@
 package models;
 
-import com.javadocmd.simplelatlng.LatLng;
+import javax.persistence.Entity;
 
 import play.db.jpa.Model;
 
+@Entity
 public class Location extends Model {
 
 	private Long locationId;
