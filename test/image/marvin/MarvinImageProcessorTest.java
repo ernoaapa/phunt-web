@@ -19,7 +19,8 @@ public class MarvinImageProcessorTest {
 	
 	@Test
 	public void shouldResizeImage() {
-		//imageProcessor.resize(new File("ari_kukkahippi.jpg"), 100, 100);
-		imageProcessor.crop(new File("ari_kukkahippi.jpg"), 336, 457);
+		File image = new File("ari_kukkahippi.jpg");
+		image = imageProcessor.resize(image, 100, 100);
+		imageProcessor.crop(image, 100, 100);//336, 457
 	}
 }

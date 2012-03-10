@@ -8,6 +8,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import org.apache.commons.io.FilenameUtils;
+
 import marvin.image.MarvinImage;
 import marvin.image.MarvinImageMask;
 import marvin.io.MarvinImageIO;
@@ -17,7 +19,7 @@ import marvin.util.MarvinPluginLoader;
 public class MarvinImageProcessor implements ImageProcessor {
 
 	@Override
-	public void resize(File image, int newWidth, int newHeight) {
+	public File resize(File image, int newWidth, int newHeight) {
 		MarvinImage targetImage = MarvinImageIO.loadImage(image.getPath());
 		MarvinImage orginalImage = targetImage.clone();
 		
@@ -32,12 +34,14 @@ public class MarvinImageProcessor implements ImageProcessor {
 		copyColors(targetImage, orginalImage, newWidth, newHeight, width, height);
 
 		targetImage.update();
-        saveImage(targetImage, image);
+        writeImage(targetImage, image);
+        return image;
 	}
 
-	private void saveImage(MarvinImage sourceImage, File target) {
+	private void writeImage(MarvinImage source, File target) {
+		String extension = FilenameUtils.getExtension(target.getPath());
 		try {
-			ImageIO.write(sourceImage.getBufferedImage(), "png", target);
+			ImageIO.write(source.getBufferedImage(), extension, target);
 		} catch (IOException e) {
 			throw new CannotProcessImageException();
 		}
@@ -65,7 +69,7 @@ public class MarvinImageProcessor implements ImageProcessor {
 	}
 
 	@Override
-	public void crop(File image, int newWidth, int newHeight) {
+	public File crop(File image, int newWidth, int newHeight) {
 		MarvinImage marvinImage = MarvinImageIO.loadImage(image.getPath());
 		int width = marvinImage.getWidth();
 		int height = marvinImage.getHeight();
@@ -73,7 +77,9 @@ public class MarvinImageProcessor implements ImageProcessor {
 		int cropX = (width-newWidth)/2;
 		int cropY = (height-newHeight)/2;
 		marvinImage = marvinImage.crop(cropX, cropY, newWidth, newHeight);
-		saveImage(marvinImage, image);
+		
+		writeImage(marvinImage, image);
+		return image;
 	}
 
 }

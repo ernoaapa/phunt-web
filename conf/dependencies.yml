@@ -13,7 +13,7 @@ require:
 repositories:
   - marvin:
       type:       local
-      artifact:   "${application.path}/marvin/framework/[module]_[revision].jar"
+      artifact:   "${application.path}/lib/[module]_[revision].jar"
       contains:
           - marvin -> *
   - provided:
