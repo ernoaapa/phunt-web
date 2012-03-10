@@ -31,10 +31,10 @@ public class LocationService {
 
 	public Location createLocation(Long chainId, String pictureUrl, LatLng userLatLng, Category category) {
 		Location location = new Location();
-		location.setChainId(chainId);
+		location.chainId = chainId;
+		location.pictureUrl = pictureUrl;
+		location.category = category;
 		location.setLatLng(userLatLng);
-		location.setPictureUrl(pictureUrl);
-		location.setCategory(category);
 		location.create();
 		
 		return location;

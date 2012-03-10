@@ -7,8 +7,8 @@ import play.db.jpa.Model;
 @Entity(name="phunt_user")
 public class User extends Model {
 
-	private String phoneId;
-	private String name;
+	public String phoneId;
+	public String name;
 
 	public User() {
 		
@@ -19,22 +19,6 @@ public class User extends Model {
 		this.name = name;
 	}
 	
-	public String getPhoneId() {
-		return phoneId;
-	}
-
-	public void setPhoneId(String uuid) {
-		this.phoneId = uuid;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public static User findByUuid(String uuid) {
 		return User.find("uuid = ?", uuid).first();
 	}
@@ -44,6 +28,11 @@ public class User extends Model {
 			return false;
 		}	
 		
-		return User.findByUuid(uuid) != null;		
+		return User.findByUuid(uuid) != null;
+	}
+	
+	@Override
+	public String toString() {
+		return name+" ("+phoneId+")";
 	}
 }

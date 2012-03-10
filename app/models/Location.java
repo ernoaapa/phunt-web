@@ -13,66 +13,18 @@ import com.sun.org.apache.bcel.internal.generic.LNEG;
 @Entity
 public class Location extends Model {
 
-	private Long chainId;
+	public Long chainId;
 
-	private Double lat;
-	private Double lon;
+	public Double lat;
+	public Double lon;
 
-	private String pictureUrl;
+	public String pictureUrl;
 
-	private Category category;
+	public Category category;
 	
 	@OneToMany
-	private List<Comment> comments;
+	public List<Comment> comments;
 
-	public Long getChainId() {
-		return chainId;
-	}
-
-	public void setChainId(Long chainId) {
-		this.chainId = chainId;
-	}
-
-	public Double getLat() {
-		return lat;
-	}
-
-	public void setLat(Double lat) {
-		this.lat = lat;
-	}
-
-	public Double getLon() {
-		return lon;
-	}
-
-	public void setLon(Double lon) {
-		this.lon = lon;
-	}
-
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-
-	public String getPictureUrl() {
-		return pictureUrl;
-	}
-
-	public void setPictureUrl(String pictureUrl) {
-		this.pictureUrl = pictureUrl;
-	}
-
-	public List<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
-	
 	public void setLatLng(LatLng latLng) {
 		lat = latLng.getLatitude();
 		lon = latLng.getLongitude();
@@ -85,5 +37,10 @@ public class Location extends Model {
 		}
 		
 		return new LatLng(lat, lon);
+	}
+	
+	@Override
+	public String toString() {
+		return id+" "+category+" "+pictureUrl;
 	}
 }
