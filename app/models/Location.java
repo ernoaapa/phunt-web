@@ -7,6 +7,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 import play.db.jpa.Model;
+import play.mvc.Http.Request;
+import util.DistanceTool;
 
 import com.javadocmd.simplelatlng.LatLng;
 import com.sun.org.apache.bcel.internal.generic.LNEG;
@@ -24,13 +26,19 @@ public class Location extends Model {
 
 	public String pictureUrl;
 
-	@Transient
-	public String roughDistance;
-	
 	public Category category;
 	
 	@OneToMany
 	public List<Comment> comments;
+
+	
+	@Transient
+	public String roughDistance;
+	
+	@Transient
+	public String resourceUrl;
+	
+	
 
 	public void setLatLng(LatLng latLng) {
 		lat = latLng.getLatitude();
@@ -38,7 +46,7 @@ public class Location extends Model {
 	}
 	
 	public LatLng asLatLng() {
-		// TODO: temp fix
+		// TODO: temp fix for crappy data
 		if (lat == null || lon == null) {
 			return new LatLng(65.34, 25.23);
 		}
@@ -53,5 +61,17 @@ public class Location extends Model {
 
 	public static Location findLatestByChainId(Long chainId) {
 		return find("chainId = ? AND nextLocationId IS null", chainId).first();
+	}
+
+	public void updateRequestProperties(LatLng userLatLng) {
+		this.roughDistance = DistanceTool.getRoughDistance(userLatLng, asLatLng());
+		this.resourceUrl = getResourceUrl();
+	}
+	
+	public String getResourceUrl() {
+		// TODO: figure out why this isn't working
+		//Map map = M.make("id", location.id).map();
+		//location.resourceUrl = Router.reverse("api.v1.Locations.show", map).url;
+		return Request.current().getBase() + "/api/v1/locations/" + id;	
 	}
 }

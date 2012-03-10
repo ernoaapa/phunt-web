@@ -8,6 +8,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import play.modules.spring.Spring;
+import play.mvc.Router;
+import play.mvc.Router.Route;
 import storage.FileStorage;
 import util.L;
 import util.M;
@@ -22,6 +24,7 @@ public class ChainService {
 
 	public List getCategoryHeads(LatLng userLatLng) {
 		LocationService locationService = getLocationService();
+		
 		
 		return L.make(newCategoryContainer(Category.MOTOR, locationService.getClosestLocationByCategory(userLatLng, Category.MOTOR)))
 				.add(newCategoryContainer(Category.BICYCLE, locationService.getClosestLocationByCategory(userLatLng, Category.BICYCLE)))
