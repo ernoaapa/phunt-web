@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 
 import play.db.jpa.Model;
 
+import com.javadocmd.simplelatlng.LatLng;
+
 @Entity
 public class Location extends Model {
 

@@ -5,3 +5,11 @@ require:
     - play -> spring 1.0.2
     - play -> crud
     - play -> secure
+    - com.javadocmd -> simplelatlng 1.0.1
+    
+repositories:
+  - provided:
+      type:       local
+      artifact:   "${application.path}/jar/[module]-[revision].jar"
+      contains:
+        - provided -> *

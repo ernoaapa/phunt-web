@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import play.modules.spring.Spring;
+
 import models.Category;
 import models.Location;
 
@@ -13,10 +15,8 @@ import com.javadocmd.simplelatlng.LatLng;
 
 public class ChainService {
 
-	@Inject
-	LocationService locationService;
-	
 	public List getCategoryHeads(LatLng userLatLng) {
+		LocationService locationService = Spring.getBeanOfType(LocationService.class);
 		List categoryContainers = new ArrayList();
 		categoryContainers.add(newCategoryContainer(Category.MOTOR, locationService.getClosestLocationByCategory(userLatLng, Category.MOTOR)));
 		categoryContainers.add(newCategoryContainer(Category.BICYCLE, locationService.getClosestLocationByCategory(userLatLng, Category.BICYCLE)));
