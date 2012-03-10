@@ -13,17 +13,13 @@ import play.db.jpa.Model;
 public class Chain extends Model {
 
 	public Category category;
-	
-	@OneToMany
-	public List<Location> locations;
 
-	public void addLocation(Location location) {
-		if (locations == null) {
-			locations = new ArrayList<Location>();
-		}
+	public Chain(Category category) {
+		this.category = category;
+	}
+	
+	public Chain() {
 		
-		locations.add(location);
-		location.category = category;
 	}
 
 }
