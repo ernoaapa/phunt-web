@@ -6,6 +6,7 @@ import models.User;
 
 import org.apache.commons.lang.StringUtils;
 
+import play.Logger;
 import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.Http.StatusCode;
@@ -27,6 +28,7 @@ public class AuthenticatedController extends Controller {
 	@Before
 	static void requireUuid() {
 		if (StringUtils.isBlank(params.get("uuid"))) {
+			Logger.info("Request lacked uuid");
 			forbidden("uuid is required!");
 		}
 	}

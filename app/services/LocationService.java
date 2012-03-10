@@ -8,6 +8,7 @@ import java.util.Map;
 
 import models.Category;
 import models.Location;
+import play.Logger;
 import play.modules.spring.Spring;
 import play.mvc.Http.Request;
 import play.mvc.Router;
@@ -47,6 +48,8 @@ public class LocationService {
 		location.category = category;
 		location.setLatLng(userLatLng);
 		location.create();
+		
+		Logger.info("Created "+location);
 		
 		return location;
 	}

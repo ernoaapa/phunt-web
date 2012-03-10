@@ -3,6 +3,7 @@ package controllers.api.v1;
 import java.io.File;
 import javax.inject.Inject;
 import controllers.api.v1.before.BeforeFilters;
+import play.Logger;
 import play.mvc.Before;
 import play.mvc.Http.StatusCode;
 import models.Category;
@@ -37,10 +38,14 @@ public class Chains extends AuthenticatedController {
 	}
 	
 	public static void update(Long chainId, File image) {
+		Logger.info("Updating head of Chain#"+chainId+": Image: "+image.getName()+" Space:"+image.getTotalSpace());
+		
 		Chain chain = Chain.findById(chainId);
 		notFoundIfNull(chain);
 		chainService.updateChainHead(chainId, image, getRequestLatLng());
 		Location location = Location.findLatestByChainId(chainId);
+		
+		Logger.info("Created "+location);
 		renderJSON(location.getResourceUrl());
 	}
 	
