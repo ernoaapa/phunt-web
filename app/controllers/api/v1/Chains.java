@@ -20,7 +20,7 @@ public class Chains extends AuthenticatedController {
 	private static ChainService chainService;
 
 
-	@Before(only = { "heads", "create", "update" })
+	//@Before(only = { "heads", "create", "update" })
 	static void requireLatAndLon() {
 		BeforeFilters.requireLatAndLon();
 	}
