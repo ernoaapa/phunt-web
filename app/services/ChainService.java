@@ -26,7 +26,6 @@ public class ChainService {
 	public List getCategoryHeads(LatLng userLatLng) {
 		LocationService locationService = getLocationService();
 		
-		
 		return L.make(newCategoryContainer(Category.MOTOR, locationService.getClosestLocationByCategory(userLatLng, Category.MOTOR)))
 				.add(newCategoryContainer(Category.BICYCLE, locationService.getClosestLocationByCategory(userLatLng, Category.BICYCLE)))
 				.add(newCategoryContainer(Category.FEET, locationService.getClosestLocationByCategory(userLatLng, Category.FEET)))

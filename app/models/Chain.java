@@ -21,5 +21,8 @@ public class Chain extends Model {
 	public Chain() {
 		
 	}
+	
+	@OneToMany(mappedBy="chainId")
+	public List<Location> locations;
 
 }

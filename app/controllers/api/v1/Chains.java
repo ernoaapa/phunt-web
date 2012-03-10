@@ -45,7 +45,7 @@ public class Chains extends AuthenticatedController {
 		chainService.updateChainHead(chainId, image, getRequestLatLng());
 		Location location = Location.findLatestByChainId(chainId);
 		
-		Logger.info("Created "+location);
+		Logger.info("Replying with resource url: " + location.getResourceUrl());
 		renderJSON(location.getResourceUrl());
 	}
 	
