@@ -1,20 +1,17 @@
 package image.marvin;
 
-import image.ImageProcessor;
 import image.CannotProcessImageException;
+import image.ImageProcessor;
 
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import org.apache.commons.io.FilenameUtils;
-
 import marvin.image.MarvinImage;
-import marvin.image.MarvinImageMask;
 import marvin.io.MarvinImageIO;
-import marvin.plugin.MarvinImagePlugin;
-import marvin.util.MarvinPluginLoader;
+
+import org.apache.commons.io.FilenameUtils;
 
 public class MarvinImageProcessor implements ImageProcessor {
 
@@ -72,10 +69,14 @@ public class MarvinImageProcessor implements ImageProcessor {
 	public File crop(File image, int newWidth, int newHeight) {
 		MarvinImage marvinImage = MarvinImageIO.loadImage(image.getPath());
 		int width = marvinImage.getWidth();
-		int height = marvinImage.getHeight();
+		newWidth = width < newWidth ? width : newWidth;
 		
-		int cropX = (width-newWidth)/2;
-		int cropY = (height-newHeight)/2;
+		int height = marvinImage.getHeight();
+		newHeight = height < newHeight ? height : newHeight;
+		
+		int cropX = (int) Math.floor((width-newWidth)/2);
+		int cropY = (int) Math.floor((height-newHeight)/2);
+
 		marvinImage = marvinImage.crop(cropX, cropY, newWidth, newHeight);
 		
 		writeImage(marvinImage, image);
