@@ -20,4 +20,9 @@ public class Locations extends AuthenticatedController {
 			renderJSON("ERROR");
 		}
 	}
+	
+	
+	public static void show(Long id) {
+		renderJSON(Location.findById(id));
+	}
 }

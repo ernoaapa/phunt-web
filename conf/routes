@@ -16,10 +16,15 @@ GET     /public/                                staticDir:public
 
 # API
 
+<<<<<<< Updated upstream
 GET		/api/v1/chains/heads					api.v1.Chains.heads
 POST	/api/v1/chains/create					api.v1.Chains.create
 POST	/api/v1/locations/verify				api.v1.Locations.verify
-# GET     /api/v1/locations/todo				api.v1.Locations.todo
+GET     /api/v1/locations/{id}					api.v1.Locations.show
+=======
+GET     /api/v1/chains/heads					api.v1.Chains.heads
+GET     /api/v1/locations/heads					api.v1.Locations.heads
+>>>>>>> Stashed changes
 
 # Admin site
 *		/admin									module:crud
