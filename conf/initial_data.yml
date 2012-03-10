@@ -1,15 +1,44 @@
+User(user1):
+    phoneId: 109200s9gosd99d9d90ds98sd89
+    name: Mr. User
+    
+User(user2):
+    phoneId: 109200s9gosd99d9d90ds98sd89
+    name: Ms. User    
+
+Comment(comment1):
+    message: Nice location!
+    user: user1
+
+Comment(comment2):
+    locationId: 1
+    message: Where motorcycle?
+    user: user1
+
+Comment(comment3):
+    locationId: 2
+    message: Suck my comment.
+    user: user2
+
+Comment(comment4):
+    locationId: 2
+    message: No suck pls.
+    user: user2
+
 Location(location1):
     category: MOTOR
     chainId: 1
     lon: 61.12
     lat: 23.12
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
+    comments: [comment1, comment2]
 Location(location2):    
     chainId: 2
     category: FEET
     lon: 61.12
     lat: 23.12
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
+    comments: [comment3, comment4]
 Location(location3):    
     chainId: 3
     category: BICYCLE
@@ -34,19 +63,3 @@ Location(location6):
     lon: 61.12
     lat: 23.12
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
-
-Comment(comment1):
-    locationId: 1
-    message: Nice location!
-
-Comment(comment2):
-    locationId: 1
-    message: Where motorcycle?
-
-Comment(comment3):
-    locationId: 2
-    message: Suck my comment.
-
-Comment(comment4):
-    locationId: 2
-    message: No suck pls.
