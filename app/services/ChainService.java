@@ -36,14 +36,12 @@ public class ChainService {
 	}
 
 	public Chain createChain(File image, Category category, LatLng userLatLng) {
-		FileStorage fileStorage = Spring.getBeanOfType(FileStorage.class);
-		String pictureUrl = fileStorage.save(image);
-
 		Chain chain = new Chain();
+		chain.category = category;
 		chain.create();
 		
 		LocationService locationService = Spring.getBeanOfType(LocationService.class);
-		Location location = locationService.createLocation(chain.getId(), pictureUrl, userLatLng, category);
+		Location location = locationService.createLocation(chain.getId(), image, userLatLng, category);
 		
 		return updateChainHead(chain.getId(), location);
 	}

@@ -1,10 +1,14 @@
 package services;
 
+import java.io.File;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 import org.apache.log4j.SimpleLayout;
+
+import play.modules.spring.Spring;
+import storage.FileStorage;
 
 import models.Category;
 import models.Location;
@@ -29,7 +33,10 @@ public class LocationService {
 		return locations;
 	}
 
-	public Location createLocation(Long chainId, String pictureUrl, LatLng userLatLng, Category category) {
+	public Location createLocation(Long chainId, File image, LatLng userLatLng, Category category) {
+		FileStorage fileStorage = Spring.getBeanOfType(FileStorage.class);
+		String pictureUrl = fileStorage.save(image);
+		
 		Location location = new Location();
 		location.chainId = chainId;
 		location.pictureUrl = pictureUrl;
@@ -39,4 +46,5 @@ public class LocationService {
 		
 		return location;
 	}
+
 }
