@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import play.db.jpa.Model;
 
@@ -17,6 +18,9 @@ public class Location extends Model {
 	private String pictureUrl;
 
 	private Category category;
+	
+	@OneToMany
+	private List<Comment> comments;
 
 	public Long getChainId() {
 		return chainId;
@@ -57,8 +61,12 @@ public class Location extends Model {
 	public void setPictureUrl(String pictureUrl) {
 		this.pictureUrl = pictureUrl;
 	}
-	
-	public LatLng asLatLng() {
-		return new LatLng(lat, lon);
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 }
