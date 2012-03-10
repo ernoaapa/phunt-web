@@ -7,7 +7,7 @@ import com.javadocmd.simplelatlng.util.LengthUnit;
 
 public class Locations extends AuthenticatedController {
 
-	public void verify(Long locationId) {
+	public static void verify(Long locationId) {
 		Location location = Location.findById(locationId);
 		
 		if (location == null) {
@@ -15,9 +15,9 @@ public class Locations extends AuthenticatedController {
 		}
 		
 		if(LatLngTool.distance(getRequestLatLng(), location.asLatLng(), LengthUnit.METER) < 20) {
-			render("OK");
+			renderJSON("OK");
 		} else {
-			render("ERROR");
+			renderJSON("ERROR");
 		}
 	}
 }

@@ -1,4 +1,4 @@
-package controllers;
+package controllers.test;
 
 import play.mvc.Controller;
 

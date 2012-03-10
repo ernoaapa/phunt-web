@@ -24,4 +24,5 @@ POST	/api/v1/locations/verify				api.v1.Locations.verify
 *		/admin									module:crud
 
 # For testing
-GET		/test/chain/create						Chain.create
+GET		/test/chain/create						test.Chain.create
+GET		/test/location/verify					test.Location.verify
