@@ -34,42 +34,48 @@ Location(location1):
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
     comments: [comment1, comment2]
     
-Location(location2):
-    category: MOTOR    
+Location(location2): 
+    category: FEET   
     chainId: 2
     nextLocationId: 5
-    category: FEET
     lon: 25.068741
     lat: 61.167475
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
     comments: [comment3, comment4]
     
-Location(location3):    
+Location(location3): 
+    category: BICYCLE   
     chainId: 3
     nextLocationId: 6
-    category: BICYCLE
     lon: 25.568741
     lat: 60.167475
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
     
 Location(location4):
+    category: MOTOR
     chainId: 1
     nextLocationId: 7
-    category: MOTOR
     lon: 24.068741
     lat: 60.167475
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
     
 Location(location5):
-    chainId: 2
     category: FEET
+    chainId: 2
     lon: 25.068741
     lat: 62.167475
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
     
 Location(location6):
-    chainId: 3
     category: BICYCLE
+    chainId: 3
     lon: 61.12
     lat: 23.12
+    pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
+    
+Location(location7):
+    category: MOTOR
+    chainId: 1
+    lon: 24.268741
+    lat: 61.167475
     pictureUrl: http://thekeyresult.com/wp-content/uploads/2011/02/4548.jpg
