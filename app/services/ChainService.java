@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import play.Logger;
 import play.modules.spring.Spring;
 import play.mvc.Router;
 import play.mvc.Router.Route;
@@ -24,7 +25,6 @@ public class ChainService {
 
 	public List getCategoryHeads(LatLng userLatLng) {
 		LocationService locationService = getLocationService();
-		
 		
 		return L.make(newCategoryContainer(Category.MOTOR, locationService.getClosestLocationByCategory(userLatLng, Category.MOTOR)))
 				.add(newCategoryContainer(Category.BICYCLE, locationService.getClosestLocationByCategory(userLatLng, Category.BICYCLE)))
@@ -48,7 +48,10 @@ public class ChainService {
 	public Chain updateChainHead(Long chainId, File image, LatLng userLatLng) {
 		Chain chain = Chain.findById(chainId);
 
+		Logger.info("Fetching last location for chain#"+chainId);
 		Location lastLocation = Location.findLatestByChainId(chainId);
+		Logger.info("Fetched latst location: "+lastLocation);
+				
 		Location newLocation = getLocationService().createLocation(chainId, image, userLatLng, chain.category);
 		
 		if (lastLocation != null) {

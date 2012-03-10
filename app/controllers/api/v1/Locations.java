@@ -19,6 +19,11 @@ public class Locations extends AuthenticatedController {
 	}	
 	
 	public static void verify(Long locationId) {
+		if (locationId == null) {
+			error(500, "Location id required!");
+			
+		}
+		
 		Location location = Location.findById(locationId);
 		
 		if (location == null) {
@@ -26,9 +31,9 @@ public class Locations extends AuthenticatedController {
 		}
 		
 		if(DistanceTool.isCloseEnoughToFind(getRequestLatLng(), location.asLatLng())) {
-			renderJSON("OK");
+			renderText("Close enough");
 		} else {
-			renderJSON("ERROR");
+			error("Too far");
 		}
 	}
 	

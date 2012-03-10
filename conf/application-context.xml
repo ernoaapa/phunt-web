@@ -6,6 +6,8 @@
 	<bean id="userService" class="services.UserService" />
 	<bean id="locationService" class="services.LocationService" />
 	<bean id="commentService" class="services.CommentService" />
+	<bean id="imageService" class="services.ImageService" />
+	<bean id="imageProcessor" class="image.marvin.MarvinImageProcessor" />
 	<bean id="fileStorage" class="storage.s3.S3FileStorage" />
-
+	
 </beans>
