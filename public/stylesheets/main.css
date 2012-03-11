@@ -1,3 +1,7 @@
+body { color: black; }
 .container { margin-top: 30px; }
 .container .btn-primary { -moz-linear-gradient(center top , #666666, #222222) }
 .span4 img { float: left; padding-right: 10px; }
+
+.hero-unit { background-color: #323232; }
+.hero-unit h1, .hero-unit p { color: white !important }
