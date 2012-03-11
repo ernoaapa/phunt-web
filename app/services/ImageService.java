@@ -30,8 +30,11 @@ public class ImageService {
 		ImageProcessor processor = Spring.getBeanOfType(ImageProcessor.class);
 		FileStorage fileStorage = Spring.getBeanOfType(FileStorage.class);
 		
-		image = processor.resize(image, 336, 457);
-		image = processor.crop(image, 336, 457);
+		//image = processor.resize(image, 336, 457);
+		//image = processor.crop(image, 336, 457);
+
+		image = processor.resize(image, 420, 571);
+		image = processor.crop(image, 420, 571);
 		
 		return fileStorage.save(image);
 	}
