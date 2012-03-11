@@ -9,7 +9,7 @@ public class Boostrap extends Job {
 	@Override
 	public void doJob() throws Exception {
 		if (Location.count() == 0) {
-			Fixtures.loadModels("demo_data.yml");
+			//Fixtures.loadModels("demo_data.yml");
 		}
 	}
 }
