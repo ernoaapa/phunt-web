@@ -29,21 +29,9 @@ public class ImageService {
 	public String save(File image) {
 		ImageProcessor processor = Spring.getBeanOfType(ImageProcessor.class);
 		FileStorage fileStorage = Spring.getBeanOfType(FileStorage.class);
-		
-		//image = processor.resize(image, 336, 457);
-		//image = processor.crop(image, 336, 457);
 
-		image = processor.resize(image, 420, 571);
-		image = processor.crop(image, 420, 571);
-		
-		return fileStorage.save(image);
-	}
-
-	public String saveGrid(File image) {
-		ImageProcessor processor = Spring.getBeanOfType(ImageProcessor.class);
-		FileStorage fileStorage = Spring.getBeanOfType(FileStorage.class);
-		
-		image = processor.crop(image, 336, 457);
+		image = processor.resize(image, 441, 560); //420x571
+		image = processor.crop(image, 441, 560);
 		
 		return fileStorage.save(image);
 	}
