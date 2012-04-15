@@ -16,6 +16,7 @@ GET     /public/                                staticDir:public
 
 # API
 
+GET 	/api/v1/foo/db							api.v1.Foo.dbVersion
 GET 	/api/v1/foo								api.v1.Foo.show
 GET		/api/v1/chains/heads					api.v1.Chains.heads
 POST	/api/v1/chains/create					api.v1.Chains.create

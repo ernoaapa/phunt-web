@@ -35,4 +35,17 @@ public class Foo extends AuthenticatedController {
 		renderJSON(locations);
 	}
 	
+	public static void dbVersion() {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(DB.datasource);
+		
+		List result = jdbcTemplate.query("SELECT version() as version", new RowMapper() {
+			@Override public Object mapRow(ResultSet arg0, int arg1) throws SQLException {
+				return arg0.getString("version");
+			}		
+		});
+		
+		Logger.info("psql version: "+result.get(0));
+		renderJSON(result.get(0));
+	}
+	
 }
