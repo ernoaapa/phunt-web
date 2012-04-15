@@ -1,5 +1,8 @@
 package controllers.api.v1;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import play.db.DB;
 import models.Location;
 import models.User;
 

@@ -1,14 +1,9 @@
 package controllers.api.v1;
 
 
-import play.mvc.Before;
-
-import util.DistanceTool;
 import models.Location;
-
-import com.javadocmd.simplelatlng.LatLngTool;
-import com.javadocmd.simplelatlng.util.LengthUnit;
-
+import play.mvc.Before;
+import util.DistanceTool;
 import controllers.api.v1.before.BeforeFilters;
 
 public class Locations extends AuthenticatedController {
@@ -23,7 +18,7 @@ public class Locations extends AuthenticatedController {
 			error(500, "Location id required!");
 			
 		}
-		
+				
 		Location location = Location.findById(locationId);
 		
 		if (location == null) {

@@ -12,6 +12,7 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectResult;
 
+import play.Logger;
 import play.libs.Codec;
 import play.libs.MimeTypes;
 import storage.FileStorage;
@@ -30,7 +31,11 @@ public class S3FileStorage implements FileStorage{
 	    metadata.setContentType(contentType);
 	    
 		try {
+			long start = System.currentTimeMillis();
+			Logger.info("Saving file to s3");
 		    s3Client.putObject(s3Bucket, key, new FileInputStream(file), metadata);
+			Logger.info("File transferred to s3 in "+(System.currentTimeMillis()-start)+"ms");
+
 		} catch (FileNotFoundException e) {
 			throw new FileUploadException();
 		}
